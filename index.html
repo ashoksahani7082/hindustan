@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07150b">
+  <meta name="description" content="Hindustan MTK — download the Android app.">
+  <title>Hindustan MTK | Official App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#07150b;--line:rgba(94,190,53,.34);--accent:#35b52b;--accent2:#8ce85b;--text:#f7fff3;--muted:#b2c6aa}
+    *{box-sizing:border-box}
+    html{min-height:100%;scroll-behavior:smooth}
+    body{margin:0;min-height:100vh;overflow-x:hidden;display:grid;place-items:center;padding:28px 18px;color:var(--text);font-family:Inter,system-ui,sans-serif;background:radial-gradient(ellipse at 50% 8%,rgba(70,174,38,.22),transparent 38%),radial-gradient(ellipse at 10% 85%,rgba(30,103,27,.22),transparent 34%),linear-gradient(145deg,#050b06 0%,#102113 52%,#071008 100%)}
+    .ambient{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+    .orb{position:absolute;border-radius:50%;filter:blur(1px);opacity:.5;animation:float 12s ease-in-out infinite}
+    .orb.one{width:230px;height:230px;background:rgba(68,190,42,.16);top:8%;left:-90px}
+    .orb.two{width:300px;height:300px;background:rgba(44,133,29,.16);bottom:-110px;right:-90px;animation-delay:-5s}
+    .orb.three{width:90px;height:90px;background:rgba(135,225,76,.15);top:18%;right:13%;animation-delay:-8s}
+    @keyframes float{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(18px,-24px,0)}}
+    .wrap{width:min(100%,460px);position:relative;z-index:1}
+    .topline{display:flex;align-items:center;justify-content:center;gap:9px;margin-bottom:20px;color:#c2d8bd;font-size:12px;letter-spacing:2.4px;text-transform:uppercase;font-weight:700}
+    .topline:before,.topline:after{content:"";height:1px;width:34px;background:linear-gradient(90deg,transparent,var(--accent))}
+    .topline:after{transform:scaleX(-1)}
+    .card{position:relative;text-align:center;padding:36px 28px 30px;border-radius:28px;background:linear-gradient(145deg,rgba(17,43,25,.9),rgba(7,23,12,.94));border:1px solid var(--line);box-shadow:0 24px 80px rgba(0,0,0,.48),inset 0 1px rgba(255,255,255,.07);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+    .card:before{content:"";position:absolute;inset:-1px;border-radius:28px;padding:1px;background:linear-gradient(135deg,rgba(126,225,74,.68),transparent 38%,transparent 68%,rgba(42,132,31,.48));-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+    .logo-ring{width:156px;height:156px;margin:0 auto 25px;padding:5px;border-radius:50%;background:linear-gradient(145deg,#1c7c19,#43c82e 45%,#075b16);box-shadow:0 0 0 4px rgba(72,190,54,.1),0 0 28px rgba(52,174,49,.18)}
+    .logo-inner{width:100%;height:100%;display:grid;place-items:center;border-radius:50%;background:#fff;overflow:hidden}
+    .logo-inner img{display:block;width:100%;height:100%;object-fit:contain;object-position:center;border-radius:50%}
+    h1{margin:0;font-size:clamp(29px,7vw,36px);line-height:1.15;letter-spacing:-1.2px;font-weight:800}
+    h1 span{color:var(--accent2)}
+    .subtitle{color:var(--muted);font-size:14px;line-height:1.7;margin:13px auto 22px;max-width:320px}
+    .status{display:inline-flex;align-items:center;gap:8px;padding:8px 13px;margin-bottom:25px;border:1px solid rgba(113,210,72,.28);border-radius:30px;color:#d8f5c9;background:rgba(77,167,43,.12);font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase}
+    .dot{width:7px;height:7px;border-radius:50%;background:#8ce85b;box-shadow:0 0 10px #8ce85b}
+    .download{display:flex;justify-content:center;align-items:center;gap:11px;width:100%;min-height:58px;padding:15px 20px;border-radius:15px;color:#10220a;text-decoration:none;font-size:15px;font-weight:800;letter-spacing:.2px;background:linear-gradient(100deg,#55c936,#a4ed70);box-shadow:0 9px 28px rgba(76,190,44,.28),inset 0 1px rgba(255,255,255,.65);transition:transform .2s ease,box-shadow .2s ease}
+    .download:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(76,190,44,.38)}
+    .download:active{transform:translateY(0)}
+    .download:focus-visible{outline:3px solid white;outline-offset:4px}
+    .download svg{width:20px;height:20px}
+    .file-note{margin:12px 0 0;color:#a0b69a;font-size:11px}
+    .divider{height:1px;margin:27px 0 22px;background:linear-gradient(90deg,transparent,rgba(132,183,105,.28),transparent)}
+    .steps-title{margin:0 0 15px;color:#e4f2df;font-size:13px;font-weight:700}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .step{padding:13px 7px;border:1px solid rgba(135,183,112,.18);border-radius:13px;background:rgba(255,255,255,.025)}
+    .step b{display:grid;place-items:center;width:25px;height:25px;margin:0 auto 8px;border-radius:50%;color:#10220a;background:var(--accent2);font-size:11px}
+    .step span{display:block;color:#c0d2b8;font-size:10px;line-height:1.45}
+    footer{text-align:center;margin-top:18px;color:#9aae91;font-size:11px;letter-spacing:.2px}
+    @media(max-width:380px){body{padding:18px 12px}.card{padding:30px 19px 24px}.logo-ring{width:138px;height:138px}.steps{gap:6px}.step{padding:11px 4px}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+  </style>
+</head>
+<body>
+  <div class="ambient" aria-hidden="true"><i class="orb one"></i><i class="orb two"></i><i class="orb three"></i></div>
+  <main class="wrap">
+    <div class="topline">Welcome to</div>
+    <section class="card" aria-label="Hindustan MTK app download">
+      <div class="logo-ring"><div class="logo-inner"><img src="./logo%20(1).png" alt="Hindustan MTK logo"></div></div>
+      <h1>Hindustan <span>MTK</span></h1>
+      <p class="subtitle">Your app is ready. Download the Android application using the button below.</p>
+      <div class="status"><i class="dot"></i> Android app available</div>
+      <a class="download" href="https://hindustancon.com/api/uploads/app/hm.apk" download>
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 17v3h14v-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Download APK
+      </a>
+      <p class="file-note">Android application package • Direct download</p>
+      <div class="divider"></div>
+      <p class="steps-title">How to install</p>
+      <div class="steps">
+        <div class="step"><b>1</b><span>Tap Download APK</span></div>
+        <div class="step"><b>2</b><span>Open the downloaded file</span></div>
+        <div class="step"><b>3</b><span>Follow install prompt</span></div>
+      </div>
+    </section>
+    <footer>© <span id="year"></span> Hindustan MTK. All rights reserved.</footer>
+  </main>
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+</body>
+</html>
